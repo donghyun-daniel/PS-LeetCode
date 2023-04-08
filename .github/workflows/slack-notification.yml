@@ -9,14 +9,17 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v2
 
-      - name: Install jq
-        run: sudo apt-get install jq
+      - name: Setup Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: 14
 
       - name: Send custom Slack message
         env:
           SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
         run: |
-          COMMIT_MESSAGE="$(git log --format=%B -n 1 ${{ github.sha }} | jq -sRr @json)"
+          COMMIT_MESSAGE="$(git log --format=%B -n 1 ${{ github.sha }})"
           COMMIT_LINK="https://github.com/${{ github.repository }}/commit/${{ github.sha }}"
           MESSAGE="Latest commit to ${{ github.repository }}: \"$COMMIT_MESSAGE\" - $COMMIT_LINK"
-          curl -X POST -H 'Content-type: application/json' --data "{\"text\": \"$MESSAGE\"}" $SLACK_WEBHOOK_URL
+          PAYLOAD=$(echo "$MESSAGE" | node slackMessage.js)
+          curl -X POST -H 'Content-type: application/json' --data "$PAYLOAD" $SLACK_WEBHOOK_URL
