@@ -20,6 +20,7 @@ jobs:
         run: |
           COMMIT_MESSAGE="$(git log --format=%B -n 1 ${{ github.sha }})"
           COMMIT_LINK="https://github.com/${{ github.repository }}/commit/${{ github.sha }}"
-          MESSAGE="Latest commit to ${{ github.repository }}: \"$COMMIT_MESSAGE\" - $COMMIT_LINK"
-          PAYLOAD=$(echo "$MESSAGE" | node slackMsg.js)
+          FILE_NAMES=$(git diff-tree --no-commit-id --name-only -r ${{ github.sha }})
+          MESSAGE="Latest commit: \"$COMMIT_MESSAGE\" - $COMMIT_LINK\nChanged files:\n$FILE_NAMES"
+          PAYLOAD=$(echo -e "$MESSAGE" | node ${GITHUB_WORKSPACE}/slackMsg.js)
           curl -X POST -H 'Content-type: application/json' --data "$PAYLOAD" $SLACK_WEBHOOK_URL
