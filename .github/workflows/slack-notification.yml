@@ -1,0 +1,16 @@
+name: Slack Notification
+
+on: [push]
+
+jobs:
+  notify:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Send custom Slack message
+        env:
+          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
+        run: |
+          COMMIT_MESSAGE="$(git log --format=%B -n 1 ${{ github.sha }})"
+          COMMIT_LINK="https://github.com/${{ github.repository }}/commit/${{ github.sha }}"
+          MESSAGE="Latest commit to ${{ github.repository }}: \"$COMMIT_MESSAGE\" - $COMMIT_LINK"
+          curl -X POST -H 'Content-type: application/json' --data "{\"text\": \"$MESSAGE\"}" $SLACK_WEBHOOK_URL
