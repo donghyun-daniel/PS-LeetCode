@@ -4,6 +4,7 @@ on:
   push:
     paths:
       - '**.py'
+      - '**.sql'
 
 jobs:
   notify:
