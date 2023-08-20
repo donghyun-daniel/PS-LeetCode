@@ -10,7 +10,6 @@ class Solution:
                 continue
             else:
                 result.append(name)
-        print(result)
         return f"/{'/'.join(result)}"
             
         
