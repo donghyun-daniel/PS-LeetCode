@@ -7,6 +7,6 @@ class Solution:
         for idx in range(len(gas)):
             tank += gas[idx] - cost[idx]
             if tank < 0:
-                start_idx = idx+1
+                start_idx = idx + 1
                 tank = 0
         return start_idx
