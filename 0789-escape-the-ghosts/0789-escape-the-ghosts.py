@@ -3,6 +3,6 @@ class Solution:
         distance = abs(target[0]) + abs(target[1])
         target_x, target_y = target
         for x, y in ghosts:
-            if abs(x - target[0]) + abs(y - target[1]) <= distance:
+            if abs(x - target_x) + abs(y - target_y) <= distance:
                 return False
         return True
