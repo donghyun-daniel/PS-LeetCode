@@ -6,4 +6,4 @@ class Solution:
                 ans.pop()
             else:
                 ans+=[letter]
-        return "".join(ans)
+        return ''.join(ans)
