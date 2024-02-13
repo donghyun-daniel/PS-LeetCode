@@ -1,2 +1,2 @@
 # PS-LeetCode
-Collection of LeetCode questions to ace the coding interview! - Created using [LeetHub](https://github.com/QasimWani/LeetHub)
+[![daniel's LeetCode stats](https://leetcode-stats-six.vercel.app/?username=donghyun-daniel&theme=dark)](https://github.com/KnlnKS/leetcode-stats)
