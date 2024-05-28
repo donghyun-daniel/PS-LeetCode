@@ -10,13 +10,10 @@ class Solution:
                     dfs(neighbor)
 
         provinces = 0
-        print(visited)
         for city in range(n):
             if not visited[city]:
                 visited[city] = True
                 dfs(city)
-                print(city, visited)
-                print("province")
                 provinces += 1
 
         return provinces
