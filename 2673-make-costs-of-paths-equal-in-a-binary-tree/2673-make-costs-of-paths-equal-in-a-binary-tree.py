@@ -5,5 +5,3 @@ class Solution:
             result += abs(cost[idx] - cost[idx+1])
             cost[(idx//2)] += max(cost[idx:idx+2])
         return result
-            
-        
