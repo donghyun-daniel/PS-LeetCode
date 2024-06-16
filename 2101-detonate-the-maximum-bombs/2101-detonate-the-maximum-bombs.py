@@ -9,7 +9,7 @@ class Solution:
             dist = sqrt((x1 - x2) ** 2 + (y1 - y2) ** 2)
             return dist <= r1
 
-        connection = collections.defaultdict(list)
+        connection = defaultdict(list)
         for idx_1 in range(len(bombs)):
             for idx_2 in range(len(bombs)):
                 if idx_1 != idx_2 and is_connected(idx_1, idx_2):
