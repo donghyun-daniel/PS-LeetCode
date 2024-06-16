@@ -1,6 +1,6 @@
 class Solution:
     def maximumDetonation(self, bombs: List[List[int]]) -> int:
-        from collections import deque
+        from collections import defaultdict, deque
         from math import sqrt
         
         def is_connected(idx_1, idx_2):
