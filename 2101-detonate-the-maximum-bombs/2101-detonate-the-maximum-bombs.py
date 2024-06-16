@@ -1,6 +1,3 @@
-import collections
-
-
 class Solution:
     def maximumDetonation(self, bombs: List[List[int]]) -> int:
         from collections import deque
