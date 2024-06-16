@@ -4,5 +4,3 @@ class Solution:
         for word in words:
             anagram[''.join(sorted(word))].append(word)
         return anagram.values()
-            
-        
