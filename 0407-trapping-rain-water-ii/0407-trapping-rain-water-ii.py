@@ -10,7 +10,6 @@ class Solution:
         if x < 3 or y < 3:
             return 0
 
-        # Initialize visited array and priority queue
         visited = [[False] * y for _ in range(x)]
         heap = []
 
@@ -21,7 +20,6 @@ class Solution:
                     heapq.heappush(heap, (height_map[r][c], r, c))
                     visited[r][c] = True
 
-        # Directions for neighboring cells
         directions = [(0, 1), (0, -1), (1, 0), (-1, 0)]
 
         water = 0
