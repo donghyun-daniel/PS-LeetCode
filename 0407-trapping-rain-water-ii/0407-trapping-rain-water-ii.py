@@ -1,8 +1,9 @@
-from typing import List
-import heapq
+
 
 class Solution:
     def trapRainWater(self, height_map: List[List[int]]) -> int:
+        import heapq
+        
         if not height_map or not height_map[0]:
             return 0
 
