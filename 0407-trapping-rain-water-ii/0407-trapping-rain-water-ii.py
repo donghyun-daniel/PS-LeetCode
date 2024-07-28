@@ -14,7 +14,6 @@ class Solution:
         visited = [[False] * y for _ in range(x)]
         heap = []
 
-        # Add boundary cells to the heap
         for r in range(x):
             for c in range(y):
                 if r == 0 or r == x-1 or c == 0 or c == y-1:
