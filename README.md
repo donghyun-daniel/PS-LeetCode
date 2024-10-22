@@ -1,2 +1,2 @@
-# PS-LeetCode
-[![daniel's LeetCode stats](https://leetcode-stats-six.vercel.app/?username=donghyun-daniel&theme=dark)](https://github.com/donghyun-daniel/PS-LeetCode)
+### Leetcode
+[![daniel's LeetCode stats](https://leetcard.jacoblin.cool/donghyun-daniel?ext=contest)](https://github.com/donghyun-daniel/PS-LeetCode)
